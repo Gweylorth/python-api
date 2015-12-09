@@ -1502,6 +1502,8 @@ class Shotgun(object):
                 raise ShotgunError("Could not upload file successfully, but "\
                     "not sure why.\nPath: %s\nUrl: %s\nError: %s" % (
                     path, url, str(result)))
+        finally:
+            params["file"].close()
 
         attachment_id = int(str(result).split(":")[1].split("\n")[0])
         return attachment_id
