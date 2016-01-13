@@ -59,8 +59,8 @@ else:
     from sg_24 import *
 
 # mimetypes imported in version specific imports
-mimetypes.add_type('video/webm','.webm') # webm and mp4 seem to be missing
-mimetypes.add_type('video/mp4', '.mp4')  # from some OS/distros
+# mimetypes.add_type('video/webm','.webm') # webm and mp4 seem to be missing
+# mimetypes.add_type('video/mp4', '.mp4')  # from some OS/distros
 
 LOG = logging.getLogger("shotgun_api3")
 LOG.setLevel(logging.WARN)
@@ -1503,7 +1503,11 @@ class Shotgun(object):
                     "not sure why.\nPath: %s\nUrl: %s\nError: %s" % (
                     path, url, str(result)))
         finally:
-            params["file"].close()
+            if is_thumbnail:
+                params["thumb_image"].close()
+            else:
+                params["file"].close()
+
 
         attachment_id = int(str(result).split(":")[1].split("\n")[0])
         return attachment_id
