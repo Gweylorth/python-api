@@ -53,10 +53,33 @@ Integration and unit tests are provided.
 
 ## Changelog
 
-**v3.0.24 - TBD**
+**v3.0.28 - TBD**
 
    + TBD
 
+**v3.0.27 - 2016 Feb 18**
+
+   + Make sure HTTP proxy authentication works with the @ character in a password.
+   + Make sure sudo authentication test works with Shotgun versions after 6.3.10
+   + Smarter uploading of thumbnails and filmstrips with the upload() method.
+   + Improve Travis build integration of the Python-API to run the full suite of
+   API tests instead of just the unit and client tests.
+
+**v3.0.26 - 2016 Feb 1**
+
+   + Updating testing framework to use environment variables inconjunction with existing example_config file so that commits and pull requests are automatically run on travis-ci.
+   + Fix to prevent stripping out case-sensitivity of a URL if the user passes their credentials to config.server as an authrization header.
+
+**v3.0.25 - 2016 Jan 12**
+
+   + Add handling for Python versions incompatible with SHA-2 (see http://blog.shotgunsoftware.com/2016/01/important-ssl-certificate-renewal-and.html).
+   + Add SHOTGUN_FORCE_CERTIFICATE_VALIDATION environment variable to prevent disabling certficate validation when SHA-2 validation is not available.
+   + Add SSL info to user-agent header.
+
+**v3.0.24 - 2016 Jan 08**
+
+   + Not released.
+     
 **v3.0.23 - 2015 Oct 26**
 
    + Fix for python bug on Windows loading mimetypes module (http://bugs.python.org/issue23371) thanks to @patrickwolf.
